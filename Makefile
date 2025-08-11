@@ -4,12 +4,12 @@ IS_LATEST        := $(IS_LATEST)
 GIT_COMMIT_HASH  := $(shell git rev-parse --short HEAD)
 
 NAME_VENDOR      := sdcote
-NAME_PROJECT     := devcontainer
+NAME_PROJECT     := iacdev
 NAME_IMAGE_REPO  := $(NAME_VENDOR)/$(NAME_PROJECT)
 GITHUB_API_CREDENTIAL = ${GH_CREDENTIAL}
 
 help:
-	@ echo 'Welcome to Makefile of sdcote/devcontainer'
+	@ echo 'Welcome to the Makefile of sdcote/iacdev'
 	@ echo
 	@ echo 'Usage: make [command]'
 	@ echo
@@ -32,7 +32,7 @@ build: version
 	docker buildx build \
 		--load \
 		-f Dockerfile \
-		-t devcontainer \
+		-t iacdev \
 		-t $(NAME_IMAGE_REPO):latest \
 		-t $(NAME_IMAGE_REPO):$(GIT_COMMIT_HASH) \
 		--build-arg BUILDKIT_INLINE_CACHE=1 \
@@ -68,10 +68,10 @@ pushtodockerhub: version
 
 	docker version
 	docker buildx ls
-	docker buildx rm buildnginxworkshop || true
+	docker buildx rm iacdev || true
 	docker buildx ls
-	docker buildx create --append --name buildnginxworkshop
-	docker buildx use buildnginxworkshop
+	docker buildx create --append --name iacdev
+	docker buildx use iacdev
 
 ifeq ($(IS_LATEST),true)
 	echo 'IS_LATEST=true'
@@ -95,4 +95,5 @@ else
 endif
 
 	docker buildx stop
+	docker buildx rm iacdev
 	docker images
