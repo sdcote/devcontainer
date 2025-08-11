@@ -95,6 +95,4 @@ else
 endif
 
 	docker buildx stop
-	docker buildx rm buildnginxworkshop
-
 	docker images
