@@ -1,0 +1,15 @@
+{
+    "name": "Devcontainer",
+    "build": { 
+        "dockerfile": "../Dockerfile",
+        "args": {
+            "GITHUB_CREDENTIAL": "${localEnv:GH_CREDENTIAL}"
+          },
+        "cacheFrom": "sdcote/devcontainer"
+    },
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "containerUser": "devcontainer",
+    "remoteUser": "devcontainer"
+}
