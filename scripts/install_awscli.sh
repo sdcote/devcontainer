@@ -18,10 +18,7 @@ case ${_arch} in
         ;;
 esac
 
-echo "======================"
 _tmpdir=$(mktemp -d)
-echo "$_tempdir"
-echo "======================"
 
 curl -sf "https://awscli.amazonaws.com/awscli-exe-linux-${_arch}.zip" -o "${_tmpdir}/awscliv2.zip"
 curl -sf "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/${_platform}/session-manager-plugin.deb" -o "${_tmpdir}/session-manager-plugin.deb"
