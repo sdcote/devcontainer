@@ -1,7 +1,7 @@
 #!/bin/bash -uex
 
-if [ -f ~/.curlrc ]; then
-    rm ~/.curlrc
+if [ -f "~/.curlrc" ]; then
+    rm "~/.curlrc"
 fi
 
 rm 
