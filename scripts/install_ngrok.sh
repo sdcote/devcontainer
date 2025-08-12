@@ -1,5 +1,7 @@
 #!/bin/bash -uex
-rm ~/.curlrc
+if [ -f ~/.curlrc ]; then
+    rm ~/.curlrc
+fi
 curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc | \
     tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && \
     echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | \
