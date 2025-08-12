@@ -1,5 +1,10 @@
 #!/bin/bash -uex
-rm ~/.curlrc
+
+if [ -f ~/.curlrc ]; then
+    rm ~/.curlrc
+fi
+
+rm 
 _arch="$(uname -m)"
 case ${_arch} in
     x86_64)
