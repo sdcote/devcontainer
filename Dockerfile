@@ -71,9 +71,9 @@ RUN set -x && \
         rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
 
 COPY --chown=devcontainer:root --chmod=777 ./scripts/* /tmp/scripts/
 WORKDIR /tmp/scripts
