@@ -3,7 +3,7 @@
 
 env
 
-export BUILD_CMD=buildongithubactions
+export BUILD_CMD=gha
 
 set -e
 

@@ -14,10 +14,10 @@ help:
 	@ echo 'Usage: make [command]'
 	@ echo
 	@ echo 'Available Commands:'
-	@ echo '  version               check version info'
-	@ echo '  build                 build base docker image'
-	@ echo '  buildongithubactions  buildX On GitHub Actions and push image to Docker Hub'
-	@ echo '  pushtodockerhub       buildX On Local and push image to Docker Hub'
+	@ echo '  version  check version info'
+	@ echo '  build    build base docker image'
+	@ echo '  gha      buildX On GitHub Actions and push image to Docker Hub'
+	@ echo '  push     buildX On Local and push image to Docker Hub'
 	@ echo
 
 version:
@@ -63,7 +63,7 @@ else
 endif
 	@ echo '[] Finished build image on GitHub Actions...'
 
-pushtodockerhub: version
+push: version
 	@ echo '[] Building and pushing to Docker Hub ...'
 
 	docker version
